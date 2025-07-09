@@ -22,11 +22,8 @@ dbt-remote-state aims to provides the same supports for reading remote state as 
 
 ## Getting Started
 
-To begin, install the `dbt-remote-state` python package.
-
-```console
-pip install dbt-remote-state
-```
+This package is a work-in-progress. You can hack on it / install it in a dbt project by cloning the repo
+and doing `poetry add -e /path/to/cloned/repo`
 
 ## Known Caveats
 
