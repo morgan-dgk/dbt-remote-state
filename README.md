@@ -1,6 +1,6 @@
 # dbt-remote-state
 
-dbt-remote state is a fork of the dbt Core plugin [dbt-remote-state](https://github.com/nicholasyager/dbt-remote-state). Whereas dbt-remote-state focuses on injecting cross-project dependencies, this *experimental* plugin can be used to work
+dbt-remote state is a fork of the dbt Core plugin [dbt-loom](https://github.com/nicholasyager/dbt-remote-state). Whereas dbt-remote-state focuses on injecting cross-project dependencies, this *experimental* plugin can be used to work
 with remote state.
 
 I am grateful for the work of the author of dbt-loom and their broader contributions to the dbt community. The majority of the code for this package is borrowed unmodified from the dbt-loom package.
