@@ -6,7 +6,7 @@ from typing import Dict, Optional
 
 from pydantic import BaseModel
 
-from dbt_loom.logging import fire_event
+from dbt_remote_state.logging import fire_event
 
 
 class GCSReferenceConfig(BaseModel):

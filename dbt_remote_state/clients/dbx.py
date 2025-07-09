@@ -2,7 +2,7 @@ import json
 import gzip
 from io import BytesIO
 from typing import Dict
-from dbt_loom.logging import fire_event
+from dbt_remote_state.logging import fire_event
 from pydantic import BaseModel
 
 
@@ -39,9 +39,9 @@ class DatabricksClient:
 
         # Deserialize the object.
         try:
-            if self.path.endswith('.gz'):
+            if self.path.endswith(".gz"):
                 with gzip.GzipFile(fileobj=BytesIO(resp.contents.read())) as gzipfile:
-                    content = gzipfile.read().decode('utf-8')
+                    content = gzipfile.read().decode("utf-8")
             else:
                 content = resp.contents.read()
             return json.loads(content)
@@ -49,5 +49,7 @@ class DatabricksClient:
             fire_event(msg=f"The object `{self.path}` does not contain valid JSON.")
             raise
         except Exception:
-            fire_event(msg=f"Unable to read the data contained in the object `{self.path}")
+            fire_event(
+                msg=f"Unable to read the data contained in the object `{self.path}"
+            )
             raise

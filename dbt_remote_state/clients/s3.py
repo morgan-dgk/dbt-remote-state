@@ -7,7 +7,7 @@ import gzip
 from io import BytesIO
 from pydantic import BaseModel
 
-from dbt_loom.logging import fire_event
+from dbt_remote_state.logging import fire_event
 
 
 class S3ReferenceConfig(BaseModel):

@@ -6,13 +6,13 @@ from urllib.parse import ParseResult, urlparse
 
 from pydantic import BaseModel, Field, validator
 
-from dbt_loom.clients.az_blob import AzureReferenceConfig
-from dbt_loom.clients.dbt_cloud import DbtCloudReferenceConfig
-from dbt_loom.clients.gcs import GCSReferenceConfig
-from dbt_loom.clients.paradime import ParadimeReferenceConfig
-from dbt_loom.clients.s3 import S3ReferenceConfig
-from dbt_loom.clients.snowflake_stage import SnowflakeReferenceConfig
-from dbt_loom.clients.dbx import DatabricksReferenceConfig
+from dbt_remote_state.clients.az_blob import AzureReferenceConfig
+from dbt_remote_state.clients.dbt_cloud import DbtCloudReferenceConfig
+from dbt_remote_state.clients.gcs import GCSReferenceConfig
+from dbt_remote_state.clients.paradime import ParadimeReferenceConfig
+from dbt_remote_state.clients.s3 import S3ReferenceConfig
+from dbt_remote_state.clients.snowflake_stage import SnowflakeReferenceConfig
+from dbt_remote_state.clients.dbx import DatabricksReferenceConfig
 
 
 class ManifestReferenceType(str, Enum):
@@ -50,7 +50,7 @@ class FileReferenceConfig(BaseModel):
 
 
 class ManifestReference(BaseModel):
-    """Reference information for a manifest to be loaded into dbt-loom."""
+    """Reference information for a manifest to be loaded into dbt-remote-state."""
 
     name: str
     type: ManifestReferenceType
@@ -68,12 +68,12 @@ class ManifestReference(BaseModel):
     optional: bool = False
 
 
-class dbtLoomConfig(BaseModel):
-    """Configuration for dbt Loom"""
+class dbtRemoteStateConfig(BaseModel):
+    """Configuration for dbt remote state"""
 
     manifests: List[ManifestReference]
     enable_telemetry: bool = False
 
 
-class LoomConfigurationError(BaseException):
-    """Error raised when dbt-loom has been misconfigured."""
+class RemoteStateConfigurationError(BaseException):
+    """Error raised when dbt-remote-state has been misconfigured."""

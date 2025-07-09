@@ -6,7 +6,7 @@ from typing import Dict
 
 from dbt.config.runtime import load_profile
 from dbt.flags import get_flags
-from dbt_loom.logging import fire_event
+from dbt_remote_state.logging import fire_event
 from pydantic import BaseModel
 
 
